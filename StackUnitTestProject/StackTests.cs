@@ -8,7 +8,7 @@ namespace StackUnitTestProject
     public class StackTests
     {
         [TestMethod]
-        public void BasicPushPopTest()
+        public void PushPop_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -18,7 +18,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void PushIncreasesCount()
+        public void Push_CountIncrease()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -27,7 +27,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void PopDecreasesCount()
+        public void Pop_CountDecrease()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -37,7 +37,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void BasicPeekTest()
+        public void Peek_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -46,7 +46,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void BasicClearTest()
+        public void Clear_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -57,15 +57,12 @@ namespace StackUnitTestProject
                 stack.Pop();
                 Assert.Fail();
             }
-            catch (Exception e)
-            {
-                if (!(e is InvalidOperationException))
-                    Assert.Fail();
-            }
+            catch (InvalidOperationException)
+            { }
         }
 
         [TestMethod]
-        public void BasicContainsTest()
+        public void Contains_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -75,7 +72,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void BasicToStringTest()
+        public void ToString_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);
@@ -84,7 +81,7 @@ namespace StackUnitTestProject
         }
 
         [TestMethod]
-        public void BasicToArrayTest()
+        public void ToArray_CorrectWork()
         {
             CustomStack<int> stack = new CustomStack<int>();
             stack.Push(1);

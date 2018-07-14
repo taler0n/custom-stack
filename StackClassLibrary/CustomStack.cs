@@ -8,11 +8,11 @@ namespace StackClassLibrary
     {
         class Node
         {
-            public T _value;
-            public Node _next;
+            public T Value;
+            public Node Next;
             public Node(T value)
             {
-                _value = value;
+                Value = value;
             }
         }
 
@@ -26,22 +26,22 @@ namespace StackClassLibrary
         public void Push(T value)
         {
             var newNode = new Node(value);
-            newNode._next = _top;
+            newNode.Next = _top;
             _top = newNode;
             Count++;
         }
         public T Peek()
         {
             if (_top != null)
-                return _top._value;
+                return _top.Value;
             throw new InvalidOperationException("Stack is empty");
         }
         public T Pop()
         {
             if (_top != null)
             {
-                T tmp = _top._value;
-                _top = _top._next;
+                T tmp = _top.Value;
+                _top = _top.Next;
                 Count--;
                 return tmp;
             }
@@ -58,12 +58,12 @@ namespace StackClassLibrary
             var tmpNode = _top;
             while (tmpNode != null)
             {
-                if (tmpNode._value.Equals(value))
+                if (tmpNode.Value.Equals(value))
                 {
                     found = true;
                     break;
                 }
-                tmpNode = tmpNode._next;
+                tmpNode = tmpNode.Next;
             }
             return found;
         }
@@ -73,8 +73,8 @@ namespace StackClassLibrary
             var tmpNode = _top;
             while (tmpNode != null)
             {
-                sb.AppendFormat("{0} ", tmpNode._value);
-                tmpNode = tmpNode._next;
+                sb.AppendFormat("{0} ", tmpNode.Value);
+                tmpNode = tmpNode.Next;
             }
             return sb.ToString();
         }
@@ -86,8 +86,8 @@ namespace StackClassLibrary
                 var tmpNode = _top;
                 for (int i = 0; i < Count; i++)
                 {
-                    array[i] = tmpNode._value;
-                    tmpNode = tmpNode._next;
+                    array[i] = tmpNode.Value;
+                    tmpNode = tmpNode.Next;
                 }
                 return array;
             }
